@@ -213,3 +213,231 @@ body {
 .navbar.sticky-top ~ main {
     padding-top: 0;
 }
+
+.promo-hero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: white;
+}
+
+.promo-hero h1 {
+    animation: fadeInDown 0.8s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========== CARDS DE PROMOCIONES ========== */
+.promo-card {
+    background: white;
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    border: 2px solid transparent;
+}
+
+.promo-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2) !important;
+    border-color: #1a1a1a;
+}
+
+.promo-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(220, 53, 69, 0.4);
+}
+
+.promo-icon {
+    font-size: 4rem;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.promo-card h3 {
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.promo-card p {
+    min-height: 80px;
+    margin-bottom: 1.5rem;
+}
+
+/* ========== CALCULADORA ========== */
+.calculator-card {
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    border: 2px solid #e9ecef;
+}
+
+.calculator-card h2 {
+    color: #1a1a1a;
+}
+
+.promo-selector {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.btn-outline-dark:checked + label,
+.btn-outline-dark.active {
+    background-color: #1a1a1a !important;
+    color: white !important;
+}
+
+.producto-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.producto-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.producto-item label {
+    color: #1a1a1a;
+}
+
+.input-group-text {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+}
+
+.form-control {
+    border: 2px solid #dee2e6;
+}
+
+.form-control:focus {
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 0.2rem rgba(26, 26, 26, 0.25);
+}
+
+/* ========== RESULTADOS ========== */
+.resultados-box {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    border: 3px solid #1a1a1a;
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.resultado-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.resultado-item.descuento {
+    background: #d4edda;
+    margin: 0 -2rem;
+    padding: 1rem 2rem;
+    border-bottom: none;
+}
+
+.resultado-item.total {
+    background: #1a1a1a;
+    color: white;
+    margin: 0 -2rem -2rem;
+    padding: 1.5rem 2rem;
+    border-radius: 0 0 12px 12px;
+}
+
+.ahorro-mensaje {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #28a745;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.2);
+}
+
+/* ========== TÉRMINOS ========== */
+.terminos ul li {
+    padding: 0.5rem 0;
+}
+
+.terminos .fa-check {
+    margin-right: 10px;
+}
+
+/* ========== BOTONES ========== */
+.btn-dark {
+    background-color: #1a1a1a;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #000;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: white;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .calculator-card {
+        padding: 1.5rem;
+    }
+
+    .promo-card {
+        margin-bottom: 1rem;
+    }
+
+    .btn-group {
+        flex-direction: column;
+    }
+
+    .btn-group label {
+        border-radius: 5px !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .resultado-item {
+        font-size: 0.9rem;
+    }
+}

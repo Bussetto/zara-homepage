@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZARA - Promociones Especiales</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="promociones.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="container">
+                <a class="navbar-brand fw-bold fs-3" href="index.html">ZARA</a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="mujer.html">MUJER</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="hombre.html">HOMBRE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="ninos.html">NIÑOS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold" href="hogar.html">HOGAR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fw-semibold active" href="promociones.html">PROMOCIONES</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="nav-icons d-flex gap-3">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-user"></i>
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="promo-hero">
+        <div class="container text-center py-5">
+            <h1 class="display-3 fw-bold mb-3">
+                <i class="fas fa-tags text-danger"></i> PROMOCIONES ESPECIALES
+            </h1>
+            <p class="lead">Aprovechá las mejores ofertas de temporada y ahorrá en tus compras</p>
+        </div>
+    </section>
+
+    <!-- Promociones Cards -->
+    <section class="promociones-info py-5 bg-light">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Promo 1 -->
+                <div class="col-md-4">
+                    <div class="promo-card shadow-sm">
+                        <div class="promo-badge">50% OFF</div>
+                        <i class="fas fa-percentage promo-icon"></i>
+                        <h3 class="fw-bold mb-3">2x1 en el Segundo</h3>
+                        <p class="text-muted">Llevá 2 productos y obtené 50% de descuento en el segundo producto de menor valor</p>
+                        <button class="btn btn-dark w-100" onclick="activarPromo(1)">CALCULAR AHORRO</button>
+                    </div>
+                </div>
+
+                <!-- Promo 2 -->
+                <div class="col-md-4">
+                    <div class="promo-card shadow-sm">
+                        <div class="promo-badge">3x2</div>
+                        <i class="fas fa-gift promo-icon"></i>
+                        <h3 class="fw-bold mb-3">3x2 Seleccionados</h3>
+                        <p class="text-muted">Comprá 3 productos y pagá solo 2. El de menor valor sale GRATIS</p>
+                        <button class="btn btn-dark w-100" onclick="activarPromo(2)">CALCULAR AHORRO</button>
+                    </div>
+                </div>
+
+                <!-- Promo 3 -->
+                <div class="col-md-4">
+                    <div class="promo-card shadow-sm">
+                        <div class="promo-badge">10% OFF</div>
+                        <i class="fas fa-star promo-icon"></i>
+                        <h3 class="fw-bold mb-3">Compras Mayores</h3>
+                        <p class="text-muted">10% de descuento adicional en compras superiores a $30.000</p>
+                        <button class="btn btn-dark w-100" onclick="activarPromo(3)">CALCULAR AHORRO</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculadora de Promociones -->
+    <section class="calculadora py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="calculator-card shadow-lg">
+                        <h2 class="text-center fw-bold mb-4">
+                            <i class="fas fa-calculator"></i> CALCULÁ TU AHORRO
+                        </h2>
+                        
+                        <!-- Selector de Promoción -->
+                        <div class="promo-selector mb-4">
+                            <label class="form-label fw-bold">Seleccioná la promoción:</label>
+                            <div class="btn-group w-100" role="group">
+                                <input type="radio" class="btn-check" name="promoType" id="promo1" value="1" checked>
+                                <label class="btn btn-outline-dark" for="promo1">50% 2do Producto</label>
+                                
+                                <input type="radio" class="btn-check" name="promoType" id="promo2" value="2">
+                                <label class="btn btn-outline-dark" for="promo2">3x2</label>
+                                
+                                <input type="radio" class="btn-check" name="promoType" id="promo3" value="3">
+                                <label class="btn btn-outline-dark" for="promo3">10% Compras +$30k</label>
+                            </div>
+                        </div>
+
+                        <!-- Productos -->
+                        <div id="productosContainer">
+                            <div class="producto-item mb-3">
+                                <label class="form-label fw-semibold">Producto 1:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control producto-precio" placeholder="Precio" min="0" step="0.01">
+                                    <input type="number" class="form-control producto-cantidad" placeholder="Cantidad" min="1" value="1">
+                                </div>
+                            </div>
+                            
+                            <div class="producto-item mb-3">
+                                <label class="form-label fw-semibold">Producto 2:</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control producto-precio" placeholder="Precio" min="0" step="0.01">
+                                    <input type="number" class="form-control producto-cantidad" placeholder="Cantidad" min="1" value="1">
+                                </div>
+                            </div>
+                            
+                            <div class="producto-item mb-3">
+                                <label class="form-label fw-semibold">Producto 3 (opcional):</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control producto-precio" placeholder="Precio" min="0" step="0.01">
+                                    <input type="number" class="form-control producto-cantidad" placeholder="Cantidad" min="1" value="1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones -->
+                        <div class="d-grid gap-2 mb-4">
+                            <button class="btn btn-dark btn-lg" onclick="calcularPromocion()">
+                                <i class="fas fa-calculator"></i> CALCULAR DESCUENTO
+                            </button>
+                            <button class="btn btn-outline-secondary" onclick="limpiarCalculadora()">
+                                <i class="fas fa-redo"></i> REINICIAR
+                            </button>
+                        </div>
+
+                        <!-- Resultados -->
+                        <div id="resultados" class="resultados-box" style="display: none;">
+                            <h4 class="fw-bold mb-3">
+                                <i class="fas fa-receipt"></i> RESUMEN DE COMPRA
+                            </h4>
+                            <div class="resultado-item">
+                                <span>Subtotal sin descuento:</span>
+                                <span class="fw-bold" id="subtotal">$0.00</span>
+                            </div>
+                            <div class="resultado-item descuento">
+                                <span>Descuento aplicado:</span>
+                                <span class="fw-bold text-success" id="descuento">-$0.00</span>
+                            </div>
+                            <div class="resultado-item total">
+                                <span class="fs-5 fw-bold">TOTAL A PAGAR:</span>
+                                <span class="fs-4 fw-bold text-primary" id="total">$0.00</span>
+                            </div>
+                            <div class="ahorro-mensaje mt-3">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span id="mensajeAhorro"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Términos y Condiciones -->
+    <section class="terminos py-4 bg-light">
+        <div class="container">
+            <h4 class="fw-bold mb-3">
+                <i class="fas fa-info-circle"></i> Términos y Condiciones
+            </h4>
+            <ul class="list-unstyled text-muted small">
+                <li><i class="fas fa-check text-success"></i> Las promociones no son acumulables entre sí</li>
+                <li><i class="fas fa-check text-success"></i> Válido para productos seleccionados en tienda y online</li>
+                <li><i class="fas fa-check text-success"></i> Promociones válidas hasta agotar stock</li>
+                <li><i class="fas fa-check text-success"></i> No válido con otras promociones o descuentos</li>
+                <li><i class="fas fa-check text-success"></i> ZARA se reserva el derecho de modificar las condiciones</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer bg-light py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="fw-bold mb-3">ZARA</h3>
+                    <p>Moda contemporánea para toda la familia</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="fw-semibold mb-3">AYUDA</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-muted">Atención al cliente</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Guía de tallas</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Cambios y devoluciones</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Envíos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="fw-semibold mb-3">EMPRESA</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-muted">Sobre nosotros</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Tiendas</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Empleo</a></li>
+                        <li><a href="#" class="text-decoration-none text-muted">Prensa</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="fw-semibold mb-3">SÍGUENOS</h4>
+                    <div class="d-flex gap-3 fs-4">
+                        <a href="#" class="text-dark"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-dark"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-dark"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <hr class="my-4">
+            <div class="text-center text-muted">
+                <p>&copy; 2025 ZARA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="promociones.js"></script>
+</body>
+</html>
